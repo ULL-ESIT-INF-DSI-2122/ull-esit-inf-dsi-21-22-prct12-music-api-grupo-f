@@ -4,15 +4,26 @@
   "description": "**Asignatura:** Desarrollo de sistemas informáticos   **Nombres:**   Leonardo Alfonso Cruz Rodríguez   Eduardo   Orlando   **Correos:**  alu0101233093@ull.edu.es   alu@ull.edu.es alu@ull.edu.es",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "doc": "typedoc",
+    "coverage": "nyc npm test && nyc report --reporter=lcov"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
+    "chai": "^4.3.6",
+    "coveralls": "^3.1.1",
     "eslint": "^8.15.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint-config-google": "^0.14.0",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.7.0",
+    "typedoc": "^0.22.15",
+    "typescript": "^4.6.4"
   }
 }
