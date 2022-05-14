@@ -1,0 +1,686 @@
+[
+  {
+    "name": "Lazy song",
+    "author": "Bruno Mars",
+    "duration": 3.09,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 579789618
+  },
+  {
+    "name": "We Will Rock You",
+    "author": "Queen",
+    "duration": 2.02,
+    "genres": [
+      "Rock"
+    ],
+    "single": false,
+    "numberReproductions": 850788708
+  },
+  {
+    "name": "We Are The Champions",
+    "author": "Queen",
+    "duration": 2.59,
+    "genres": [
+      "Rock"
+    ],
+    "single": false,
+    "numberReproductions": 492189797
+  },
+  {
+    "name": "Living On My Own",
+    "author": "Freedie Mercury",
+    "duration": 3.37,
+    "genres": [
+      "Rock"
+    ],
+    "single": true,
+    "numberReproductions": 49599780
+  },
+  {
+    "name": "Fly Me To The Moon",
+    "author": "Frank Sinatra",
+    "duration": 2.27,
+    "genres": [
+      "Jazz"
+    ],
+    "single": true,
+    "numberReproductions": 440753146
+  },
+  {
+    "name": "That's Life",
+    "author": "Frank Sinatra",
+    "duration": 3.07,
+    "genres": [
+      "Jazz"
+    ],
+    "single": true,
+    "numberReproductions": 176750487
+  },
+  {
+    "name": "My Way",
+    "author": "Frank Sinatra",
+    "duration": 4.36,
+    "genres": [
+      "Jazz"
+    ],
+    "single": true,
+    "numberReproductions": 277602409
+  },
+  {
+    "name": "Theme From New York, New York",
+    "author": "Frank Sinatra",
+    "duration": 3.24,
+    "genres": [
+      "Jazz"
+    ],
+    "single": true,
+    "numberReproductions": 123150792
+  },
+  {
+    "name": "Ave María",
+    "author": "David Bisbal",
+    "duration": 3.29,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 45831273
+  },
+  {
+    "name": "Buleria",
+    "author": "David Bisbal",
+    "duration": 4.11,
+    "genres": [
+      "Pop",
+      "Flamenco"
+    ],
+    "single": true,
+    "numberReproductions": 17876247
+  },
+  {
+    "name": "Diez Mil Maneras",
+    "author": "David Bisbal",
+    "duration": 3.33,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 87495950
+  },
+  {
+    "name": "Tú Con Él",
+    "author": "Frankie Ruiz",
+    "duration": 5.02,
+    "genres": [
+      "Salsa"
+    ],
+    "single": true,
+    "numberReproductions": 101090235
+  },
+  {
+    "name": "Ven Devórame Otra Vez",
+    "author": "Lalo Rodríguez",
+    "duration": 5.14,
+    "genres": [
+      "Salsa"
+    ],
+    "single": true,
+    "numberReproductions": 112653260
+  },
+  {
+    "name": "Que Locura Enamorarme De Ti",
+    "author": "Eddie Santiago",
+    "duration": 5.1,
+    "genres": [
+      "Salsa"
+    ],
+    "single": true,
+    "numberReproductions": 139619024
+  },
+  {
+    "name": "Gasolina",
+    "author": "Daddy Yankee",
+    "duration": 3.12,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 402472777
+  },
+  {
+    "name": "Con Calma",
+    "author": "Daddy Yankee",
+    "duration": 3.13,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 1071537617
+  },
+  {
+    "name": "Ella Me Levantó",
+    "author": "Daddy Yankee",
+    "duration": 3.29,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 144656329
+  },
+  {
+    "name": "Llamado De Emergencia",
+    "author": "Daddy Yankee",
+    "duration": 3.59,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 139069000
+  },
+  {
+    "name": "¿Que Tengo Que Hacer?",
+    "author": "Daddy Yankee",
+    "duration": 3.38,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 79770957
+  },
+  {
+    "name": "What Makes You Beautiful",
+    "author": "One Direction",
+    "duration": 3.19,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 675098582
+  },
+  {
+    "name": "One Thing",
+    "author": "One Direction",
+    "duration": 3.17,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 230441115
+  },
+  {
+    "name": "More Than This",
+    "author": "One Direction",
+    "duration": 3.49,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 125239630
+  },
+  {
+    "name": "Up All Night",
+    "author": "One Direction",
+    "duration": 3.14,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 94225626
+  },
+  {
+    "name": "Marry You",
+    "author": "Bruno Mars",
+    "duration": 3.5,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 581462216
+  },
+  {
+    "name": "Just The Way You Are",
+    "author": "Bruno Mars",
+    "duration": 3.4,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 1231207913
+  },
+  {
+    "name": "Count On Me",
+    "author": "Bruno Mars",
+    "duration": 3.17,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 419169784
+  },
+  {
+    "name": "24K Magic",
+    "author": "Bruno Mars",
+    "duration": 3.45,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 1080959094
+  },
+  {
+    "name": "That's What I Like",
+    "author": "Bruno Mars",
+    "duration": 3.26,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 1389335029
+  },
+  {
+    "name": "Versace On The Floor",
+    "author": "Bruno Mars",
+    "duration": 4.21,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 553278820
+  },
+  {
+    "name": "Finesse",
+    "author": "Bruno Mars",
+    "duration": 4.21,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 172610864
+  },
+  {
+    "name": "Rap God",
+    "author": "Eminem",
+    "duration": 6.03,
+    "genres": [
+      "Rap"
+    ],
+    "single": false,
+    "numberReproductions": 822016140
+  },
+  {
+    "name": "Berzerk",
+    "author": "Eminem",
+    "duration": 3.58,
+    "genres": [
+      "Rap"
+    ],
+    "single": false,
+    "numberReproductions": 251906925
+  },
+  {
+    "name": "Survival",
+    "author": "Eminem",
+    "duration": 4.32,
+    "genres": [
+      "Rap"
+    ],
+    "single": false,
+    "numberReproductions": 214651826
+  },
+  {
+    "name": "La mamá de la Mamá",
+    "author": "El Alfa",
+    "duration": 3.39,
+    "genres": [
+      "Dembow"
+    ],
+    "single": true,
+    "numberReproductions": 113161424
+  },
+  {
+    "name": "La Romana",
+    "author": "El Alfa",
+    "duration": 5,
+    "genres": [
+      "Trap"
+    ],
+    "single": true,
+    "numberReproductions": 255647696
+  },
+  {
+    "name": "Acuetate",
+    "author": "El Alfa",
+    "duration": 4.08,
+    "genres": [
+      "Dembow"
+    ],
+    "single": true,
+    "numberReproductions": 9036251
+  },
+  {
+    "name": "Singapour",
+    "author": "El Alfa",
+    "duration": 2.58,
+    "genres": [
+      "Dembow",
+      "Reggeaton"
+    ],
+    "single": false,
+    "numberReproductions": 129587956
+  },
+  {
+    "name": "4K",
+    "author": "El Alfa",
+    "duration": 3.22,
+    "genres": [
+      "Dembow"
+    ],
+    "single": false,
+    "numberReproductions": 121353639
+  },
+  {
+    "name": "Bésame",
+    "author": "David Bisbal",
+    "duration": 3.2,
+    "genres": [
+      "Flamenco"
+    ],
+    "single": false,
+    "numberReproductions": 64889123
+  },
+  {
+    "name": "Cuentas Claras",
+    "author": "David Bisbal",
+    "duration": 3,
+    "genres": [
+      "Flamenco"
+    ],
+    "single": false,
+    "numberReproductions": 2135026
+  },
+  {
+    "name": "Esta ausencia",
+    "author": "David Bisbal",
+    "duration": 4.35,
+    "genres": [
+      "Flamenco"
+    ],
+    "single": false,
+    "numberReproductions": 17602943
+  },
+  {
+    "name": "Desnúdate Mujer",
+    "author": "David Bisbal",
+    "duration": 4.39,
+    "genres": [
+      "Flamenco"
+    ],
+    "single": false,
+    "numberReproductions": 8159026
+  },
+  {
+    "name": "Yonaguni",
+    "author": "Bad Bunny",
+    "duration": 3.26,
+    "genres": [
+      "Trap"
+    ],
+    "single": false,
+    "numberReproductions": 813696871
+  },
+  {
+    "name": "Amorfoda",
+    "author": "Bad Bunny",
+    "duration": 2.33,
+    "genres": [
+      "Trap"
+    ],
+    "single": true,
+    "numberReproductions": 452675669
+  },
+  {
+    "name": "Tusa",
+    "author": "Karol G",
+    "duration": 3.21,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": false,
+    "numberReproductions": 1194146621
+  },
+  {
+    "name": "EL MAKINON",
+    "author": "Karol G",
+    "duration": 3.29,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 337378418
+  },
+  {
+    "name": "Punto G",
+    "author": "Karol G",
+    "duration": 3.01,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 132475390
+  },
+  {
+    "name": "All The Things You Are",
+    "author": "Charlie Parker",
+    "duration": 2.49,
+    "genres": [
+      "Jazz"
+    ],
+    "single": false,
+    "numberReproductions": 21038962
+  },
+  {
+    "name": "What A Wonderful World",
+    "author": "Louis Amstrong",
+    "duration": 2.17,
+    "genres": [
+      "Jazz"
+    ],
+    "single": true,
+    "numberReproductions": 355786822
+  },
+  {
+    "name": "I Don't Wanna Live Forever",
+    "author": "Zayn Malik",
+    "duration": 4.07,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 1230698829
+  },
+  {
+    "name": "Watermelon Sugar",
+    "author": "Harry Styles",
+    "duration": 2.54,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 1694942359
+  },
+  {
+    "name": "34+35",
+    "author": "Ariana Grande",
+    "duration": 2.53,
+    "genres": [
+      "Pop"
+    ],
+    "single": false,
+    "numberReproductions": 671929174
+  },
+  {
+    "name": "7 rings",
+    "author": "Ariana Grande",
+    "duration": 2.58,
+    "genres": [
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 1701612041
+  },
+  {
+    "name": "FourFiveSeconds",
+    "author": "Paul McCartney",
+    "duration": 3.08,
+    "genres": [
+      "Rock"
+    ],
+    "single": true,
+    "numberReproductions": 817228283
+  },
+  {
+    "name": "Say Say Say",
+    "author": "Paul McCartney",
+    "duration": 3.55,
+    "genres": [
+      "Rock"
+    ],
+    "single": true,
+    "numberReproductions": 68667521
+  },
+  {
+    "name": "Imagine",
+    "author": "John Lennon",
+    "duration": 3.07,
+    "genres": [
+      "Rock"
+    ],
+    "single": false,
+    "numberReproductions": 438913503
+  },
+  {
+    "name": "Woman",
+    "author": "John Lennon",
+    "duration": 3.32,
+    "genres": [
+      "Rock"
+    ],
+    "single": true,
+    "numberReproductions": 180250894
+  },
+  {
+    "name": "LALISA",
+    "author": "Lisa",
+    "duration": 3.2,
+    "genres": [
+      "K-pop",
+      "Pop"
+    ],
+    "single": true,
+    "numberReproductions": 195537802
+  },
+  {
+    "name": "MONEY",
+    "author": "Lisa",
+    "duration": 2.48,
+    "genres": [
+      "K-pop"
+    ],
+    "single": true,
+    "numberReproductions": 430976789
+  },
+  {
+    "name": "Loco",
+    "author": "Chimbala",
+    "duration": 3.51,
+    "genres": [
+      "Reggeaton"
+    ],
+    "single": true,
+    "numberReproductions": 249758705
+  },
+  {
+    "name": "Volví",
+    "author": "Aventura",
+    "duration": 3.5,
+    "genres": [
+      "Reggeaton",
+      "Bachata"
+    ],
+    "single": false,
+    "numberReproductions": 438178636
+  },
+  {
+    "name": "Wake Me Up",
+    "author": "Avicii",
+    "duration": 4.07,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 1546524746
+  },
+  {
+    "name": "You Make Me",
+    "author": "Avicii",
+    "duration": 3.53,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 256059902
+  },
+  {
+    "name": "Hey Brother",
+    "author": "Avicii",
+    "duration": 4.15,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 739355087
+  },
+  {
+    "name": "Addicted To You",
+    "author": "Avicii",
+    "duration": 2.28,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 272797017
+  },
+  {
+    "name": "Divine Sorrow",
+    "author": "Avicii",
+    "duration": 4.39,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": true,
+    "numberReproductions": 8509953
+  },
+  {
+    "name": "The Days",
+    "author": "Avicii",
+    "duration": 4.38,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 285091047
+  },
+  {
+    "name": "The Nights",
+    "author": "Avicii",
+    "duration": 2.56,
+    "genres": [
+      "Electrónica"
+    ],
+    "single": false,
+    "numberReproductions": 1039304515
+  }  
+]

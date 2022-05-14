@@ -1,0 +1,334 @@
+[
+  {
+    "name": "Bruno Mars",
+    "genres": [
+      "Pop"
+    ],
+    "monthlyListeners": 52959426,
+    "songs": [
+      "Lazy song",
+      "Marry You",
+      "Just The Way You Are",
+      "Count On Me",
+      "24K Magic",
+      "That's What I Like",
+      "Versace On The Floor",
+      "Finesse"
+    ]
+  },
+  {
+    "name": "Freedie Mercury",
+    "genres": [
+      "Rock"
+    ],
+    "monthlyListeners": 41830192,
+    "songs": [
+      "Living On My Own"
+    ]
+  },
+  {
+    "name": "Frank Sinatra",
+    "genres": [
+      "Jazz"
+    ],
+    "monthlyListeners": 10938478,
+    "songs": [
+      "Fly Me To The Moon",
+      "That's Life",
+      "My Way",
+      "Theme From New York, New York"
+    ]
+  },
+  {
+    "name": "David Bisbal",
+    "genres": [
+      "Pop",
+      "Flamenco"
+    ],
+    "monthlyListeners": 7567560,
+    "songs": [
+      "Ave María",
+      "Buleria",
+      "Diez Mil Maneras",
+      "Bésame",
+      "Cuentas Claras",
+      "Esta ausencia",
+      "Desnúdate Mujer"
+    ]
+  },
+  {
+    "name": "Frankie Ruiz",
+    "genres": [
+      "Salsa"
+    ],
+    "monthlyListeners": 3593599,
+    "songs": [
+      "Tú Con Él"
+    ]
+  },
+  {
+    "name": "Lalo Rodríguez",
+    "genres": [
+      "Salsa"
+    ],
+    "monthlyListeners": 1850225,    
+    "songs": [
+      "Ven Devórame Otra Vez"
+    ]
+  },
+  {
+    "name": "Eddie Santiago",
+    "genres": [
+      "Salsa"
+    ],    
+    "monthlyListeners": 3654542,    
+    "songs": [
+      "Que Locura Enamorarme De Ti"
+    ]
+  },
+  {
+    "name": "Karol G",
+    "genres": [
+      "Reggeaton"
+    ],    
+    "monthlyListeners": 39258376,    
+    "songs": [
+      "Tusa",
+      "EL MAKINON",
+      "Punto G"
+    ]
+  },
+  {
+    "name": "Aventura",
+    "genres": [
+      "Reggeaton",
+      "Bachata"
+    ],    
+    "monthlyListeners": 16704462,    
+    "songs": [
+      "Volví"
+    ]
+  },
+  {
+    "name": "El Alfa",
+    "genres": [
+      "Dembow",
+      "Trap",
+      "Reggeaton"
+    ],    
+    "monthlyListeners": 15824273,    
+    "songs": [
+      "La mamá de la Mamá",
+      "La Romana",
+      "Acuetate",
+      "Singapour",
+      "4K"
+    ]
+  },
+  {
+    "name": "Chimbala",
+    "genres": [
+      "Dembow",
+      "Reggeaton"
+    ],    
+    "monthlyListeners": 6801706,    
+    "songs": [
+      "Loco"
+    ]
+  },
+  {
+    "name": "Lisa",
+    "genres": [
+      "K-pop",
+      "Pop"
+    ],
+    "monthlyListeners": 27038566,
+    "songs": [
+      "LALISA",
+      "MONEY"
+    ]
+  },
+  {
+    "name": "John Lennon",
+    "genres": [
+      "Rock",
+      "Pop"
+    ],    
+    "monthlyListeners": 33939146,
+    "songs": [
+      "Imagine",
+      "Woman"
+    ]
+  },
+  {
+    "name": "Paul McCartney",
+    "genres": [
+      "Rock",
+      "Pop"
+    ],
+    
+    "monthlyListeners": 35725891,
+    "songs": [
+      "FourFiveSeconds",
+      "Say Say Say"
+    ]
+  },
+  {
+    "name": "Ariana Grande",
+    "genres": [
+      "Pop"
+    ],    
+    "monthlyListeners": 53820847,
+    "songs": [
+      "34+35",
+      "7 rings"
+    ]
+  },
+  {
+    "name": "Charlie Parker",
+    "genres": [
+      "Jazz"
+    ],    
+    "monthlyListeners": 608840,    
+    "songs": [
+      "All The Things You Are"
+    ]
+  },
+  {
+    "name": "Louis Amstrong",
+    "genres": [
+      "Jazz"
+    ],    
+    "monthlyListeners": 6894477,    
+    "songs": [
+      "What A Wonderful World"
+    ]
+  },
+  {
+    "name": "Eminem",
+    "genres": [
+      "Rap"
+    ],
+    "monthlyListeners": 52673522,    
+    "songs": [
+      "Rap God",
+      "Berzerk",
+      "Survival"
+    ]
+  },
+  {
+    "name": "Harry Styles",
+    "genres": [
+      "Pop"
+    ],    
+    "monthlyListeners": 75715332,
+    "songs": [
+      "Watermelon Sugar"
+    ]
+  },
+  {
+    "name": "Zayn Malik",
+    "genres": [
+      "Pop"
+    ],
+    "monthlyListeners": 48616927,
+    "songs": [
+      "I Don't Wanna Live Forever"
+    ]
+  },
+  {
+    "name": "Daddy Yankee",
+    "genres": [
+      "Reggeaton"
+    ],    
+    "monthlyListeners": 43855958,    
+    "songs": [
+      "Gasolina",
+      "Con Calma",
+      "Ella Me Levantó",
+      "Llamado De Emergencia",
+      "¿Que Tengo Que Hacer?"
+    ]
+  },
+  {
+    "name": "Bad Bunny",
+    "genres": [
+      "Trap"
+    ],    
+    "monthlyListeners": 48009228,    
+    "songs": [
+      "Yonaguni",
+      "Amorfoda"
+    ]
+  },
+  {
+    "name": "Avicii",
+    "genres": [
+      "Electrónica"
+    ],
+    "monthlyListeners": 29000598,
+    "songs": [
+      "Wake Me Up",
+      "You Make Me",
+      "Hey Brother",
+      "Addicted To You",
+      "Divine Sorrow",
+      "The Days",
+      "The Nights"
+    ]
+  },
+  {
+    "name": "Queen",
+    "genres": [
+      "Rock"
+    ],
+    "monthlyListeners": 38496411,
+    "songs": [
+      "We Will Rock You",
+      "We Are The Champions"
+    ]
+  },
+  {
+    "name": "BTS",
+    "genres": [
+      "K-pop"
+    ],
+    "monthlyListeners": 37706990,
+    "songs": [
+    ]
+  },
+  {
+    "name": "Blackpink",
+    "genres": [
+      "K-pop"
+    ],
+    
+    "monthlyListeners": 13782820,
+    "songs": [
+    ]
+  },
+  {
+    "name": "The Beatles",
+    "genres": [
+      "Rock",
+      "Pop"
+    ],
+    
+    "monthlyListeners": 25240950,
+    "songs": [
+    ]
+  },
+  {
+    "name": "One Direction",
+    "genres": [
+      "Pop"
+    ],
+    "monthlyListeners": 28259221,
+    "songs": [
+      "What Makes You Beautiful",
+      "One Thing",
+      "More Than This",
+      "Up All Night"
+    ]
+  }
+]

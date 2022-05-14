@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Playlist N1",
+    "songs": [
+      "Buleria",
+      "Llamado De Emergencia",
+      "Gasolina",
+      "MONEY",
+      "Volví",
+      "Con Calma"
+    ],
+    "duration": 0.21,
+    "genres": [
+      "Reggeaton",
+      "K-pop",
+      "Pop",
+      "Flamenco",
+      "Bachata"
+    ]
+  },
+  {
+    "name": "Fiesta",
+    "songs": [
+      "Gasolina",
+      "Con Calma",
+      "Ella Me Levantó",
+      "Llamado De Emergencia",
+      "¿Que Tengo Que Hacer?",
+      "Singapour",
+      "Tusa",
+      "EL MAKINON",
+      "Punto G",
+      "Loco",
+      "Volví",
+      "La mamá de la Mamá",
+      "Acuetate",
+      "Singapour",
+      "4K"
+    ],
+    "duration": 0.52,
+    "genres": [
+      "Reggeaton",
+      "Dembow",
+      "Bachata"
+    ]
+  },
+  {
+    "name": "Clásicos",
+    "songs": [
+      "All The Things You Are",
+      "Fly Me To The Moon",
+      "Imagine",
+      "My Way",
+      "That's Life",
+      "Theme From New York, New York",
+      "We Are The Champions",
+      "We Will Rock You",
+      "What A Wonderful World",
+      "Lazy song"
+    ],
+    "duration": 0.26,
+    "genres": [
+      "Jazz",
+      "Rock"
+    ]
+  },
+  {
+    "name": "Éxitos Pop",
+    "songs": [
+      "24K Magic",
+      "34+35",
+      "7 rings",
+      "Count On Me",
+      "Finesse",
+      "I Don't Wanna Live Forever",
+      "Just The Way You Are",
+      "LALISA",
+      "Lazy song",
+      "Marry You",
+      "One Thing",
+      "That's What I Like",
+      "Versace On The Floor",
+      "Watermelon Sugar",
+      "What Makes You Beautiful"
+    ],
+    "duration": 0.52,
+    "genres": [
+      "Pop",
+      "K-pop"
+    ]
+  }
+]
