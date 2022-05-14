@@ -1,0 +1,18 @@
+{
+  "name": "p12",
+  "version": "1.0.0",
+  "description": "**Asignatura:** Desarrollo de sistemas informáticos   **Nombres:**   Leonardo Alfonso Cruz Rodríguez   Eduardo   Orlando   **Correos:**  alu0101233093@ull.edu.es   alu@ull.edu.es alu@ull.edu.es",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
