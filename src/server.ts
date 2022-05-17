@@ -5,7 +5,7 @@ require("dotenv").config();
 
 export class Server {
     readonly app = express();
-    constructor(readonly port: number = 3000) {}
+    constructor(readonly port: string | number) {}
 
     public start() {
         this.app.use(express.json());
@@ -46,5 +46,7 @@ export class Server {
 
 }
 
-let MyMusicApp: Server = new Server(9000);
+const port = process.env.PORT || 3000;
+
+let MyMusicApp: Server = new Server(port);
 MyMusicApp.start();

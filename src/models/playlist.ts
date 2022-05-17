@@ -1,13 +1,37 @@
-import {model, Schema} from 'mongoose';
+import { ObjectID } from 'mongodb';
+import {model, Schema, Document} from 'mongoose';
+import validator from 'validator';
 
-const PlaylistSchema = new Schema({
+interface PlaylistDocumentInterface extends Document {
+    _id: ObjectID,
+    name: string,
+    songs: string[]
+    duration: number,
+    genres: string[],
+}
+
+const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
+    _id: {
+        type: ObjectID,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
+        validate: (value: string) => {
+            if (!validator.isAlphanumeric(value)) {
+                throw new Error('Playlist name must contain alphanumeric characters only');
+            }
+        }
     },
     songs: [{
         type: String,
         required: true,
+        validate: (value: string) => {
+            if (!validator.isAlphanumeric(value)) {
+                throw new Error('Song name must contain alphanumeric characters only');
+            }
+        }
     }],
     duration: {
         type: Number,
@@ -16,6 +40,11 @@ const PlaylistSchema = new Schema({
     genres: [{
         type: String,
         required: true,
+        validate: (value: string) => {
+            if (!validator.isAlphanumeric(value)) {
+                throw new Error('Genre name must contain alphanumeric characters only');
+            }
+        }
     }],
 });
   
