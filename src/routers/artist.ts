@@ -17,7 +17,7 @@ ArtistRouter.post('/artist', (req, res) => {
 // get artist by name
 ArtistRouter.get('/artist', (req, res) => {
     const filter = req.query.name?{name: req.query.name.toString()}:{};
-    Artist.find(filter).then((data) => {
+    Artist.findOne(filter).then((data) => {
         if (data.length !== 0) {
             res.send(data);
         } else {
@@ -41,6 +41,20 @@ ArtistRouter.get('/artist/:id', (req, res) => {
     });
 });
 
+// delete artist by name
+ArtistRouter.delete('/artist', (req, res) => {
+    const filter = req.query.name?{name: req.query.name.toString()}:{};
+    Artist.deleteOne(filter).then((data) => {
+        if (data.length !== 0) {
+            res.send(data);
+        } else {
+            res.status(404).send();
+        }
+    }).catch(() => {
+        res.status(500).send();
+    });
+});
+
 // delete artist
 ArtistRouter.delete('/artist/:id', (req, res) => {
     const { id } = req.params;
@@ -49,6 +63,39 @@ ArtistRouter.delete('/artist/:id', (req, res) => {
     }).catch((error) => {
         res.json({ message: error });
     });
+});
+
+// update artist by name
+ArtistRouter.patch('/artist', (req, res) => {
+    if (!req.query.name) {
+      res.status(400).send({
+        error: 'A name must be provided'
+      });
+    } else {
+      const allowedUpdates = ['genres', 'monthlyListeners', 'songs'];
+      const actualUpdates = Object.keys(req.query.name);
+      const isValidUpdate =
+        actualUpdates.every((update) => allowedUpdates.includes(update));
+  
+      if (!isValidUpdate) {
+        res.status(400).send({
+          error: 'Update is not permitted',
+        });
+      } else {
+        Artist.findOneAndUpdate({title: req.query.name.toString()}, req.body, {
+          new: true,
+          runValidators: true,
+        }).then((artist) => {
+          if (!artist) {
+            res.status(404).send();
+          } else {
+            res.send(artist);
+          }
+        }).catch((error) => {
+          res.status(400).send(error);
+        });
+      }
+    }
 });
 
 // update artist

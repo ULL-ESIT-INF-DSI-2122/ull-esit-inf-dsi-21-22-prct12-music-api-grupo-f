@@ -12,7 +12,9 @@ interface ArtistDocumentInterface extends Document {
 const ArtistSchema = new Schema<ArtistDocumentInterface>({
     name: {
         type: String,
+        unique: true,
         required: true,
+        trim: true,
         /*
         validate: (value: string) => {
             if (!validator.isAlphanumeric(value)) {
@@ -24,6 +26,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
     genres: [{
         type: String,
         required: true,
+        trim: true,
         /*
         validate: (value: string) => {
             if (!validator.isAlphanumeric(value)) {
@@ -35,6 +38,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
     songs: [{
         type: String,
         required: true,
+        trim: true,
         /*
         validate: (value: string) => {
             if (!validator.isAlphanumeric(value)) {
@@ -46,6 +50,8 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
     monthlyListeners: {
         type: Number,
         required: true,
+        min: 0,
+        default: 0,
     },
 });
   
