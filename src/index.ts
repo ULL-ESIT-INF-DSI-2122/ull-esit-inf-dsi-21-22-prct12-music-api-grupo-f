@@ -1,5 +1,5 @@
 import * as express from 'express';
-import './db/database';
+import './db/mongoose';
 import { SongRouter } from './routers/song';
 import { ArtistRouter } from './routers/artist';
 import { PlaylistRouter } from './routers/playlist';
