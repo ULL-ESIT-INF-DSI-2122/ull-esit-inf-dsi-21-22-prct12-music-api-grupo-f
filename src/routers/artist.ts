@@ -19,7 +19,7 @@ ArtistRouter.get('/artist/:id', (req, res) => {
     if (req.query.name) {
         const namereq = req.query.name;
         Artist
-            .findOne({})
+            .find({})
             .where('name').equals(namereq)
             .then((data: any) => {
                 res.json(data);
