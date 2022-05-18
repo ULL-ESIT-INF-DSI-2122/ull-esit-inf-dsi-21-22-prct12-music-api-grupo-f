@@ -82,7 +82,7 @@ ArtistRouter.patch('/artist', (req, res) => {
           error: 'Update is not permitted',
         });
       } else {
-        Artist.findOneAndUpdate({title: req.query.name.toString()}, req.body, {
+        Artist.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
           new: true,
           runValidators: true,
         }).then((artist) => {
