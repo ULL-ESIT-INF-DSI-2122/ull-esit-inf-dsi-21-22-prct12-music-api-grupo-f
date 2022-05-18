@@ -1,6 +1,7 @@
 import { ObjectID } from 'mongodb';
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
+
 interface ArtistDocumentInterface extends Document {
     name: string,
     genres: string[],
@@ -16,7 +17,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         validate: (value: string) => {
             if (!validator.isAlphanumeric(value)) {
                 throw new Error('Artist name must contain alphanumeric characters only');
-            }
+            
         }
         */
     },

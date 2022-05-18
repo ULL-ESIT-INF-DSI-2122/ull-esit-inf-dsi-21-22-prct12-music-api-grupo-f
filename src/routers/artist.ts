@@ -16,13 +16,26 @@ ArtistRouter.post('/artist', (req, res) => {
 
 // get artist
 ArtistRouter.get('/artist/:id', (req, res) => {
-    // const id = req.query.id
-    const { id } = req.params;
-    Artist.findById(id).then((data) => {
-        res.json(data);
-    }).catch((error) => {
-        res.json({ message: error });
-    });
+    if (req.query.name) {
+        const namereq = req.query.name;
+        Artist
+            .findOne({})
+            .where('name').equals(namereq)
+            .then((data: any) => {
+                res.json(data);
+            }).catch((error) => {
+                res.json({message: error});
+            });
+    } else if (req.params) {
+        const { id } = req.params;
+        Artist.findById(id).then((data: any) => {
+            res.json(data);
+        }).catch((error) => {
+            res.json({ message: error });
+        });
+    } else {
+        res.json({message: 'Request Not Found'});
+    }
 });
 
 // delete artist
