@@ -43,10 +43,10 @@ export class Server {
 
         this.app.listen(this.port, () => console.log("Server listening on port:", this.port));
     }
-
+    
 }
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 9000;
 
 let MyMusicApp: Server = new Server(port);
 MyMusicApp.start();

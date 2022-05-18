@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "server": "nodemon dist/server.js",
-    "db": "node dist/database.js",
     "heroku-postbuild": "npx tsc",
     "start": "node dist/index.js",
     "test": "mocha",
