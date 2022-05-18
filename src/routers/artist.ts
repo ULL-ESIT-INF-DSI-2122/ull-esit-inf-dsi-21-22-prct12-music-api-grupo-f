@@ -14,28 +14,31 @@ ArtistRouter.post('/artist', (req, res) => {
     });
 });
 
-// get artist
+// get artist by name
+ArtistRouter.get('/artist', (req, res) => {
+    const filter = req.query.name?{name: req.query.name.toString()}:{};
+    Artist.find(filter).then((data) => {
+        if (data.length !== 0) {
+            res.send(data);
+        } else {
+            res.status(404).send();
+        }
+    }).catch(() => {
+        res.status(500).send();
+    });
+});
+
+// get artist by id
 ArtistRouter.get('/artist/:id', (req, res) => {
-    if (req.query.name) {
-        const namereq = req.query.name;
-        Artist
-            .find({})
-            .where('name').equals(namereq)
-            .then((data: any) => {
-                res.json(data);
-            }).catch((error) => {
-                res.json({message: error});
-            });
-    } else if (req.params) {
-        const { id } = req.params;
-        Artist.findById(id).then((data: any) => {
-            res.json(data);
-        }).catch((error) => {
-            res.json({ message: error });
-        });
-    } else {
-        res.json({message: 'Request Not Found'});
-    }
+    Artist.findById(req.params.id).then((data: any) => {
+        if (!data) {
+            res.status(404).send();
+        } else {
+            res.send(data);
+        }
+    }).catch((error) => {
+        res.json({ message: error });
+    });
 });
 
 // delete artist
