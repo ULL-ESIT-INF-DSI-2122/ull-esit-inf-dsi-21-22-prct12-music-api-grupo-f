@@ -16,7 +16,18 @@ ArtistRouter.post('/artist', (req, res) => {
 
 // get artist by name
 ArtistRouter.get('/artist', (req, res) => {
-    if (!req.query.name) {
+    if (!req.query) {
+        const filter = {};
+        Artist.find(filter).then((data) => {
+            if (data.length !== 0) {
+                return res.send(data);
+            } else {
+                return res.status(404).send();
+            }
+        }).catch((err) => {
+            return res.status(500).send(err);
+        });
+    } else if (!req.query.name) {
         return res.status(400).send({
             error: 'A name must be provied',
         });
