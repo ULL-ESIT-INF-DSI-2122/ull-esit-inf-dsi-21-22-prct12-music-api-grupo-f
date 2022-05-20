@@ -15,7 +15,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)) {
+            if (!value.match(/^[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)) {
                 throw new Error('The artist name must be a combination of letters, numbers or spaces.');
             }            
         }
@@ -25,7 +25,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+            if (!value.match(/^[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)) {
                 throw new Error('The genre name must be a combination of letters, numbers or spaces.');
             }            
         }
@@ -35,7 +35,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)) {
+            if (!value.match(/^[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+$/g)) {
                 throw new Error('The song name must be a combination of letters, numbers or spaces.');
             }            
         }
