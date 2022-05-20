@@ -47,6 +47,11 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         min: 0,
         default: 0,
+        validate: (value: number) => {
+            if (!validator.isDecimal(value)) {
+                throw new Error('The monthly listeners must be a decimal number.');
+            }
+        }
     },
 });
   
