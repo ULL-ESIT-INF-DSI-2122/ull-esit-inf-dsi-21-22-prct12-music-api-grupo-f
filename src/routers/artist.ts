@@ -16,35 +16,16 @@ ArtistRouter.post('/artist', (req, res) => {
 
 // get artist by name
 ArtistRouter.get('/artist', (req, res) => {
-    if (req.query) {
-        if (!req.query.name) {
-            return res.status(400).send({
-                error: 'A name must be provied',
-            });
+    const filter = req.query.name?{name: req.query.name.toString()}:{};
+    Artist.find(filter).then((data) => {
+        if (data.length !== 0) {
+            return res.send(data);
         } else {
-            const filter = {name: req.query.name.toString()};
-            Artist.find(filter).then((data) => {
-                if (data.length !== 0) {
-                    return res.send(data);
-                } else {
-                    return res.status(404).send();
-                }
-            }).catch((err) => {
-                return res.status(500).send(err);
-            });
+            return res.status(404).send();
         }
-    } else {
-        const filter = {};
-        Artist.find(filter).then((data) => {
-            if (data.length !== 0) {
-                return res.send(data);
-            } else {
-                return res.status(404).send();
-            }
-        }).catch((err) => {
-            return res.status(500).send(err);
-        });
-    }
+    }).catch((err) => {
+        return res.status(500).send(err);
+    });
 });
 
 // get artist by id
