@@ -1,6 +1,6 @@
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
-import { isInteger } from '../functions/validateFunctions';
+import { isInteger, regExp } from '../functions/validateFunctions';
 
 interface SongDocumentInterface extends Document {
     name: string,
@@ -17,8 +17,8 @@ const SongSchema = new Schema<SongDocumentInterface>({
         required: true,
         trime: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the song must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     },
@@ -28,8 +28,8 @@ const SongSchema = new Schema<SongDocumentInterface>({
         trim: true,
         unique: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The author name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the author must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     },
@@ -49,8 +49,8 @@ const SongSchema = new Schema<SongDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the genre must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     }],

@@ -1,5 +1,6 @@
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
+import { regExp } from '../functions/validateFunctions';
 
 interface ArtistDocumentInterface extends Document {
     name: string,
@@ -8,7 +9,6 @@ interface ArtistDocumentInterface extends Document {
     songs: string[]
 }
 
-const regExp = /^[ -~¿-ÿ\u00f1\u00d1]/g;
 
 const ArtistSchema = new Schema<ArtistDocumentInterface>({
     name: {
@@ -18,7 +18,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         trim: true,
         validate: (value: string) => {
             if (!value.match(regExp)) {
-                throw new Error('The artist name must be a combination of letters, numbers or spaces.');
+                throw new Error('The name of the artist must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     },
@@ -28,7 +28,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         trim: true,
         validate: (value: string) => {
             if (!value.match(regExp)) {
-                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+                throw new Error('The name of the genre must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     }],
@@ -38,7 +38,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         trim: true,
         validate: (value: string) => {
             if (!value.match(regExp)) {
-                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+                throw new Error('The name of the song must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     }],

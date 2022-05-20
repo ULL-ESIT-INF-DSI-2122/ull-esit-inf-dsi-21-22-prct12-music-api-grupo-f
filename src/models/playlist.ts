@@ -1,6 +1,6 @@
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
-import { isInteger } from '../functions/validateFunctions';
+import { isInteger, regExp } from '../functions/validateFunctions';
 
 interface PlaylistDocumentInterface extends Document {
     name: string,
@@ -16,8 +16,8 @@ const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
         trim: true,
         required: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The playlist name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the playlist must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     },
@@ -26,8 +26,8 @@ const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the song must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     }],
@@ -47,8 +47,8 @@ const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
-                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+            if (!value.match(regExp)) {
+                throw new Error('The name of the genre must be a combination of printable ascii characters or characters within the Spanish language');
             }            
         }
     }],
