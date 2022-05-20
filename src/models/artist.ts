@@ -15,7 +15,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+            if (!value.match(/^[A-Za-z0-0-'-,\s]+$/g)) {
                 throw new Error('The artist name must be a combination of letters, numbers or spaces.');
             }            
         }
@@ -35,7 +35,7 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         required: true,
         trim: true,
         validate: (value: string) => {
-            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+            if (!value.match(/^[A-Za-z0-0-'-,\s]+$/g)) {
                 throw new Error('The song name must be a combination of letters, numbers or spaces.');
             }            
         }
