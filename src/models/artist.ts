@@ -8,7 +8,7 @@ interface ArtistDocumentInterface extends Document {
     songs: string[]
 }
 
-const regExp = /^[ -~À-ÿ\u00f1\u00d1]/g;
+const regExp = /^[ -~¿-ÿ\u00f1\u00d1]/g;
 
 const ArtistSchema = new Schema<ArtistDocumentInterface>({
     name: {
