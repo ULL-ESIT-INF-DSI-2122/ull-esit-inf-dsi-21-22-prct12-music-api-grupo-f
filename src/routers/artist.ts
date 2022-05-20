@@ -8,23 +8,23 @@ export const ArtistRouter = express.Router();
 ArtistRouter.post('/artist', (req, res) => {
     const artist = new Artist(req.body);
     artist.save().then((data) => {
-        res.json(data);
-    }).catch((error) => { 
-        res.json({ message: error });
+        return res.status(201).send(data);
+    }).catch((err) => { 
+        return res.status(400).send(err);
     });
 });
 
 // get artist by name
 ArtistRouter.get('/artist', (req, res) => {
     const filter = req.query.name?{name: req.query.name.toString()}:{};
-    Artist.findOne(filter).then((data) => {
+    Artist.find(filter).then((data) => {
         if (data.length !== 0) {
-            res.send(data);
+            return res.send(data);
         } else {
-            res.status(404).send();
+            return res.status(404).send();
         }
-    }).catch(() => {
-        res.status(500).send();
+    }).catch((err) => {
+        return res.status(500).send(err);
     });
 });
 
@@ -32,79 +32,103 @@ ArtistRouter.get('/artist', (req, res) => {
 ArtistRouter.get('/artist/:id', (req, res) => {
     Artist.findById(req.params.id).then((data: any) => {
         if (!data) {
-            res.status(404).send();
+            return res.status(404).send();
         } else {
-            res.send(data);
+            return res.send(data);
         }
-    }).catch((error) => {
-        res.json({ message: error });
+    }).catch((err) => {
+        return res.status(500).send(err);
     });
 });
 
 // delete artist by name
 ArtistRouter.delete('/artist', (req, res) => {
-    const filter = req.query.name?{name: req.query.name.toString()}:{};
-    Artist.deleteOne(filter).then((data) => {
-        if (data.length !== 0) {
-            res.send(data);
-        } else {
-            res.status(404).send();
-        }
-    }).catch(() => {
-        res.status(500).send();
-    });
+    if (!req.query.name) {
+        return res.status(400).send({
+            error: 'A name must be provided',
+        });
+    } else {
+        Artist.findOneAndDelete({name: req.query.name.toString()}).then((data: any) => {
+            if (!data) {
+                return res.status(404).send();
+            } else {
+                return res.send(data);
+            }
+        }).catch((err: any) => {
+            return res.status(400).send(err);
+        });
+    }
 });
 
-// delete artist
+// delete artist by id
 ArtistRouter.delete('/artist/:id', (req, res) => {
-    const { id } = req.params;
-    Artist.deleteOne({ _id: id }).then((data) => {
-        res.json(data);
-    }).catch((error) => {
-        res.json({ message: error });
+    Artist.findByIdAndDelete(req.params.id).then((data: any) => {
+        if (!data) {
+            return res.status(404).send();
+        } else {
+            return res.send(data);
+        }
+    }).catch((err: any) => {
+        return res.status(400).send(err);
     });
 });
 
 // update artist by name
 ArtistRouter.patch('/artist', (req, res) => {
     if (!req.query.name) {
-      res.status(400).send({
+      return res.status(400).send({
         error: 'A name must be provided'
       });
     } else {
-      const allowedUpdates = ['genres', 'monthlyListeners', 'songs'];
-      const actualUpdates = Object.keys(req.query.name);
+      const allowedUpdates = ['name', 'genres', 'monthlyListeners', 'songs'];
+      const actualUpdates = Object.keys(req.body);
       const isValidUpdate =
         actualUpdates.every((update) => allowedUpdates.includes(update));
   
       if (!isValidUpdate) {
-        res.status(400).send({
+        return res.status(400).send({
           error: 'Update is not permitted',
         });
       } else {
         Artist.findOneAndUpdate({name: req.query.name.toString()}, req.body, {
           new: true,
           runValidators: true,
-        }).then((artist) => {
-          if (!artist) {
-            res.status(404).send();
+        }).then((data) => {
+          if (!data) {
+            return res.status(404).send();
           } else {
-            res.send(artist);
+            return res.send(data);
           }
-        }).catch((error) => {
-          res.status(400).send(error);
+        }).catch((err) => {
+          return res.status(400).send(err);
         });
       }
     }
 });
 
-// update artist
+// update artist by id
 ArtistRouter.put('/artist/:id', (req, res) => {
-    const { id } = req.params;
-    const { name, genres, songs, monthlyListeners } = req.body;
-    Artist.updateOne({ _id: id }, { $set: {name, genres, songs, monthlyListeners } }).then((data) => {
-        res.json(data);
-    }).catch((error) => {
-        res.json({ message: error });
-    });
+    const allowedUpdates = ['name', 'genres', 'monthlyListeners', 'songs'];
+    const actualUpdates = Object.keys(req.body);
+    const isValidUpdate =
+      actualUpdates.every((update) => allowedUpdates.includes(update));
+
+    if (!isValidUpdate) {
+       return res.status(400).send({
+           error: 'Update is not permitted',
+       });
+    } else {
+        Artist.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true,
+        }).then((data) => {
+            if (!data) {
+                return res.status(404).send();
+            } else {
+                return res.send(data);
+            }
+        }).catch((err) => {
+            return res.status(400).send(err);
+        });
+    }
 });

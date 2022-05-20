@@ -1,4 +1,3 @@
-import { ObjectID } from 'mongodb';
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
 import { isInteger } from '../functions/validateFunctions';
@@ -17,26 +16,22 @@ const SongSchema = new Schema<SongDocumentInterface>({
         type: String,
         required: true,
         trime: true,
-        /*
         validate: (value: string) => {
-            if (!validator.) {
-                throw new Error('Song name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     },
     author: {
         type: String,
         required: true,
         trim: true,
         unique: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Auhtor name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The author name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     },
     duration: {
         type: Number,
@@ -53,13 +48,11 @@ const SongSchema = new Schema<SongDocumentInterface>({
         type: String,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Genre name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     }],
     single: {
         type: Boolean,

@@ -1,4 +1,3 @@
-import { ObjectID } from 'mongodb';
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
 
@@ -15,37 +14,31 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         unique: true,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Artist name must contain alphanumeric characters only');
-            
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The artist name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     },
     genres: [{
         type: String,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Genre name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     }],
     songs: [{
         type: String,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Song name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     }],
     monthlyListeners: {
         type: Number,

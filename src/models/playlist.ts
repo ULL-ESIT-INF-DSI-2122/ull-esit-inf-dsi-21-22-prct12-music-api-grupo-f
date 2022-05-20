@@ -1,4 +1,3 @@
-import { ObjectID } from 'mongodb';
 import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
 import { isInteger } from '../functions/validateFunctions';
@@ -16,25 +15,21 @@ const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
         unique: true,
         trim: true,
         required: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Playlist name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The playlist name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     },
     songs: [{
         type: String,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Song name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The song name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     }],
     duration: {
         type: Number,
@@ -51,13 +46,11 @@ const PlaylistSchema = new Schema<PlaylistDocumentInterface>({
         type: String,
         required: true,
         trim: true,
-        /*
         validate: (value: string) => {
-            if (!validator.isAlphanumeric(value)) {
-                throw new Error('Genre name must contain alphanumeric characters only');
-            }
+            if (!value.match(/^[A-Za-z0-0\s]+$/g)) {
+                throw new Error('The genre name must be a combination of letters, numbers or spaces.');
+            }            
         }
-        */
     }],
 });
   
