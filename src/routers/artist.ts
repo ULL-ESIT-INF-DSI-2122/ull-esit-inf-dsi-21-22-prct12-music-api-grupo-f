@@ -107,7 +107,7 @@ ArtistRouter.patch('/artist', (req, res) => {
 });
 
 // update artist by id
-ArtistRouter.put('/artist/:id', (req, res) => {
+ArtistRouter.patch('/artist/:id', (req, res) => {
     const allowedUpdates = ['name', 'genres', 'monthlyListeners', 'songs'];
     const actualUpdates = Object.keys(req.body);
     const isValidUpdate =
