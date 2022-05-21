@@ -3,7 +3,9 @@ import { Playlist } from '../models/playlist';
 
 export const PlaylistRouter = express.Router();
 
-// create playlist
+/**
+ * POST Playlist
+ */
 PlaylistRouter.post('/playlist', (req, res) => {
     const playlist = new Playlist(req.body);
     playlist.save().then((data) => {
@@ -13,7 +15,9 @@ PlaylistRouter.post('/playlist', (req, res) => {
     });
 });
 
-// get playlist by name
+/**
+ * GET Playlist por nombre
+ */
 PlaylistRouter.get('/playlist', (req, res) => {
     const filter = req.query.name?{name: req.query.name.toString()}:{};
     Playlist.find(filter).then((data) => {
@@ -27,7 +31,9 @@ PlaylistRouter.get('/playlist', (req, res) => {
     });
 });
 
-// get playlist by id
+/**
+ * GET Playlist por id
+ */
 PlaylistRouter.get('/playlist/:id', (req, res) => {
     Playlist.findById(req.params.id).then((data: any) => {
         if (!data) {
@@ -40,7 +46,9 @@ PlaylistRouter.get('/playlist/:id', (req, res) => {
     });
 });
 
-// delete playlist by name
+/**
+ * DELETE Playlist por nombre
+ */
 PlaylistRouter.delete('/playlist', (req, res) => {
     if (!req.query.name) {
         return res.status(400).send({
@@ -58,7 +66,10 @@ PlaylistRouter.delete('/playlist', (req, res) => {
         });
     }
 });
-// delete playlist by id
+
+/**
+ * DELETE Playlist por id
+ */
 PlaylistRouter.delete('/playlist/:id', (req, res) => {
     Playlist.findByIdAndDelete(req.params.id).then((data: any) => {
         if (!data) {
@@ -71,7 +82,9 @@ PlaylistRouter.delete('/playlist/:id', (req, res) => {
     });
 });
 
-// update playlist by name
+/**
+ * PATCH Playlist por nombre
+ */
 PlaylistRouter.patch('/playlist', (req, res) => {
     if (!req.query.name) {
       return res.status(400).send({
@@ -104,8 +117,10 @@ PlaylistRouter.patch('/playlist', (req, res) => {
     }
 });
 
-// update playlist by id
-PlaylistRouter.put('/playlist/:id', (req, res) => {
+/**
+ * PATCH Playlist por id
+ */
+PlaylistRouter.patch('/playlist/:id', (req, res) => {
     const allowedUpdates = ['name', 'songs', 'duration', 'genres'];
     const actualUpdates = Object.keys(req.body);
     const isValidUpdate =

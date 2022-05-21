@@ -3,7 +3,9 @@ import { Song } from '../models/song';
 
 export const SongRouter = express.Router();
 
-// create song
+/**
+ * POST Song
+ */
 SongRouter.post('/song', (req, res) => {
     const song = new Song(req.body);
     song.save().then((data) => {
@@ -13,7 +15,9 @@ SongRouter.post('/song', (req, res) => {
     });
 });
 
-// get song by name
+/**
+ * GET Song por nombre
+ */
 SongRouter.get('/song', (req, res) => {
     const filter = req.query.name?{name: req.query.name.toString()}:{};
     Song.find(filter).then((data) => {
@@ -27,7 +31,9 @@ SongRouter.get('/song', (req, res) => {
     });
 });
 
-// get song by id
+/**
+ * GET Song por id
+ */
 SongRouter.get('/song/:id', (req, res) => {
     Song.findById(req.params.id).then((data: any) => {
         if (!data) {
@@ -40,7 +46,10 @@ SongRouter.get('/song/:id', (req, res) => {
     });
 });
 
-// delete song by name
+
+/**
+ * DELETE Song por nombre
+ */
 SongRouter.delete('/song', (req, res) => {
     if (!req.query.name) {
         return res.status(400).send({
@@ -59,7 +68,9 @@ SongRouter.delete('/song', (req, res) => {
     }
 });
 
-// delete song by id
+/**
+ * DELETE Song por id
+ */
 SongRouter.delete('/song/:id', (req, res) => {
     Song.findByIdAndDelete(req.params.id).then((data: any) => {
         if (!data) {
@@ -72,7 +83,9 @@ SongRouter.delete('/song/:id', (req, res) => {
     });
 });
 
-// update song by name
+/**
+ * PATCH Song por nombre
+ */
 SongRouter.patch('/song', (req, res) => {
     if (!req.query.name) {
       return res.status(400).send({
@@ -105,8 +118,10 @@ SongRouter.patch('/song', (req, res) => {
     }
 });
 
-// update song by id
-SongRouter.put('/song/:id', (req, res) => {
+/**
+ * PATCH Song por id
+ */
+SongRouter.patch('/song/:id', (req, res) => {
     const allowedUpdates = ['name', 'author', 'duration', 'genres', 'single', 'numberReproductions'];
     const actualUpdates = Object.keys(req.body);
     const isValidUpdate =
@@ -121,6 +136,7 @@ SongRouter.put('/song/:id', (req, res) => {
             new: true,
             runValidators: true,
         }).then((data) => {
+
             if (!data) {
                 return res.status(404).send();
             } else {

@@ -5,7 +5,6 @@ import { ArtistRouter } from './routers/artist';
 import { PlaylistRouter } from './routers/playlist';
 import { DefaultRouter } from './routers/default';
 
-
 const app = express.default();
 app.use(express.json());
 app.use(SongRouter);

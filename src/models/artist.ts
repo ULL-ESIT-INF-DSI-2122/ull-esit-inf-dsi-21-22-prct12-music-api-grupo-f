@@ -2,6 +2,13 @@ import {model, Schema, Document} from 'mongoose';
 import validator from 'validator';
 import { regExp } from '../functions/validateFunctions';
 
+/**
+ * @typeParam name String con el nombre del artista
+ * @typeParam genres Array de strings con los géneros del artista
+ * @typeParam monthlyListeners Number con el número de oyentes mensuales
+ * @typeParam songs Array de strings con las canciones del artista
+ * @description Interfaz ArtistDocumentInterface que hereda de Document
+ */
 interface ArtistDocumentInterface extends Document {
     name: string,
     genres: string[],
@@ -9,7 +16,9 @@ interface ArtistDocumentInterface extends Document {
     songs: string[]
 }
 
-
+/**
+ * @description Esquema ArtistSchema usando como argumento de tipo ArtistDocumentInterface
+ */
 const ArtistSchema = new Schema<ArtistDocumentInterface>({
     name: {
         type: String,
@@ -49,5 +58,8 @@ const ArtistSchema = new Schema<ArtistDocumentInterface>({
         default: 0,
     },
 });
-  
+
+/**
+ * @description Modelo Artist usando como argumento de tipo ArtistSchema
+ */
 export const Artist = model('Artist', ArtistSchema);
