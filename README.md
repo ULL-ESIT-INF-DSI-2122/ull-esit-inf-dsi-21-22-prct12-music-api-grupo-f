@@ -1,14 +1,13 @@
-# Práctica 11 - Cliente y servidor para una aplicación de procesamiento de notas de texto
+# Práctica 12 - Cliente y servidor para una aplicación de procesamiento de notas de texto
 **Asignatura:** Desarrollo de sistemas informáticos  
 **Nombres:**  
 Leonardo Alfonso Cruz Rodríguez  
-Eduardo  
-Orlando  
+Eduardo González Pérez
+Jose Orlando Nina Orellana  
 **Correos:** 
 alu0101233093@ull.edu.es  
-alu@ull.edu.es
-alu@ull.edu.es
-
+alu0101319001@ull.edu.es
+alu0101322308@ull.edu.es
 
 ## Índice
 - [Creación del directorio de trabajo y tareas previas](#id0)
@@ -402,3 +401,222 @@ sonar.javascript.lcov.reportPath=coverage/lcov.info
 
 Y ya estaría configurada la `Gihub Actions` de `Sonar Cloud`. Por último, para añadir el badge a la documentación del proyecto, nos dirigiremos al apartado de información
 abajo a la izquierda y copiaremos el badge.
+
+## Modelos de datos<a name="id1"></a>
+
+### Modelo artist
+Primero crearemos la interfaz `ArtistDocumentInterface` que hereda de `Document` con los atributos:
+ - `name:` nombre del artista
+ - `genres:` géneros del artista
+ - `MonthlyListeners:` número de oyentes mensuales
+ - `songs:` canciones del artista
+
+Después crearemos el el esquema `ArtistSchema` usando como argumento el tipo ArtistDocumentInterface.
+  - **name:**
+    - Tipo: String
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **genres:**
+    - Tipo: String[]
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **songs:**
+    - Tipo: String[]
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **monthlyListeners:**
+    - Tipo: String
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+Por último, se exporta el modelo como `Artist`.
+```typescript
+export const Artist = model('Artist', ArtistSchema);
+```
+
+### Modelo song
+Primero crearemos la interfaz `SongDocumentInterface` que hereda de `Document` con los atributos:
+ - `name:` nombre de la canción
+ - `autor:` nombre el autor de la canción
+ - `duration:` duración de la canción 
+ - `genres:` géneros de la canción
+ - `single:` si es single o no
+ - `numberReproductions:` número de reproducciones 
+
+Después crearemos el el esquema `SongSchema` usando como argumento el tipo SongDocumentInterface.
+  - **name:**
+    - Tipo: String
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **autor:**
+    - Tipo: String
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **duration:**
+    - Tipo: Number
+    - Requerido: True
+    - Valor mínimo: 0.0
+    - Valor por defecto: 0.0
+    - Validate: Comprueba que el número sea de tipo `Float`
+
+  - **genres:**
+    - Tipo: String[]
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **single:**
+    - Tipo: Boolean
+    - Requerido: True
+
+  - **numberReproductions:**
+    - Tipo: Number
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Valor mínimo: 0
+    - Valor por defecto: 0
+
+Por último, se exporta el modelo como `Song`.
+```typescript
+export const Song = model('Song', SongSchema);;
+```
+
+### Modelo playlist
+Primero crearemos la interfaz `PlaylistDocumentInterface` que hereda de `Document` con los atributos:
+ - `name:` nombre de la playlist
+ - `songs:` canciones que contiene la playlist
+ - `duration:` duración de la playlist
+ - `genres:` géneros de la playlist
+
+Después crearemos el el esquema `PlaylistSchema` usando como argumento el tipo PlaylistDocumentInterface.
+  - **name:**
+    - Tipo: String
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **songs:**
+    - Tipo: String[]
+    - Único: True
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+  - **duration:**
+    - Tipo: Number
+    - Requerido: True
+    - Valor mínimo: 0.0
+    - Valor por defecto: 0.0
+    - Validate: Comprueba que el número sea de tipo `Float`
+
+  - **genres:**
+    - Tipo: String[]
+    - Requerido: True
+    - Trim (Quitar espacios al final y principio de la cadena): True
+    - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
+
+Por último, se exporta el modelo como `Playlist`.
+```typescript
+export const Playlist = model('Playlist', PlaylistSchema);
+```
+
+## Implementación de routers<a name="id2"></a>
+Para que nuestra API Rest funcione, es indispensable implementar `routers` que gestionen las peticiones.
+Para cada modelo de dato, existe la siguiente lista de routers:
+
+  - **POST:**
+    Permite la creación de documentos en la base de datos. Se le pasarían los atributos por medio de un JSON en el `body` de la petición, con esa información crearíamos un documento según el modelo definido y a continuación se llamaría al método `save()` que nos devolverá una promesa. 
+    Si todo funciona correctamente devolverá el código estado `201`, en caso de error se devolvería el código de estado `400`.
+
+  - **GET:**
+    Existen dos variantes de peticiones GET:
+    - Petición GET por id:
+      Buscará en la base de datos utilizando la `id` del documento.
+    - Petición GET por nombre:
+      Buscará en la base de datos utilizando el atributo `name`.
+
+## Creación del servidor y conexión al clúster de MongoDB Atlas<a name="id3"></a>
+
+Antes de todo crearemos el fichero `.env` que contendrá las variables de entorno `MONGODB_URL`, que es la URL para conectarse al 
+clúster de MongoDB Atlas, y `PORT`, el puerto 8000.
+
+Declararemos la variable `dbURI` que puede ser o la variable de entorno `MONGODB_URL` o una base de datos local llamada `music-app`.
+Nos intentaremos conectar al clúster de MongoDB Atlas usando `connect` pasandole como parámetros la variable `dbURI` y una serie de opciones. Esto devuelve una promesa, que en caso de éxito mostraremos por pantalla un mensaje indicando que se ha conectado con el servidor y en caso de error mostraremos un mensajes indicando que no se ha podido conectar con el servidor.
+
+```typescript
+import { connect } from 'mongoose';
+require("dotenv").config();
+
+const dbURI = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/music-app";
+
+connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+}).then(() => {
+    console.log('Connection to MongoDB server established');
+}).catch(() => {
+    console.log('Unable to connect to MongoDB server');
+});
+```
+
+Primero que nada importar el fichero ./db/mongoose creado anteriormente para poder realizar la conexión con el clúster. Crearemos el servidor `app` con exprress e indicaremos que usaremos JSON y los todos los routers de la carpeta routers (SongRouter, ArtistRouter, PlaylistRouter, DefaultRouter). Crearemos una variable `port` que será la variable de entorno `PORT` o 3000. Por último escucharemos con `listen` en el puerto indicado.
+
+```typescript
+import * as express from 'express';
+import './db/mongoose';
+import { SongRouter } from './routers/song';
+import { ArtistRouter } from './routers/artist';
+import { PlaylistRouter } from './routers/playlist';
+import { DefaultRouter } from './routers/default';
+
+const app = express.default();
+app.use(express.json());
+app.use(SongRouter);
+app.use(ArtistRouter);
+app.use(PlaylistRouter);
+app.use(DefaultRouter);
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log('Server has started at port ', port);
+});
+```
+
+## Creacion de clúster en MongoDB Atlas<a name="id"></a>
+
+Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.com/es) con el correo institucional.
+
+A continuación crearemos un clúster. Escogeremos un clúster compartido ya que es gratuito. Dejamos todas la opciones por defecto.
+
+foto
+
+Haremos click en Network Access que es una lista de IPs desde la cuáles se puede acceder al clúster. Pulsaremos en Add IP Address y seleccionaremos Allow Access from anywhere, de este modo se podrá acceder al clúster desde cualquier IP.
+
+![Network Access](https://gyazo.com/428908214089fafcde454ab46abf187e.png)
+
+Luego de esto nos dirigiremos Database Access que nos permite filtrar los usuarios, sus permisos y tipos de autenticación a los clústers. Pulsaremos en Add New Database User, ya dentro seleccionaremos como modo de autenticación Password, crearemos un nuevo usuario llamado admin y crearemos una contraseña para ese usuario.
+
+![](https://gyazo.com/5f23559ff1c0a20b4e040060f65501f6.png)
+
+Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le asignaremos el role Atlas admin. Para terminar pulsaremos en Add User.
+
+![](https://gyazo.com/ed43c84820f9c87ea0d005eac7a0468d.png)
