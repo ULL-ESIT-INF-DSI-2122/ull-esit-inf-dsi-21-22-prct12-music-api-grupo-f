@@ -22,7 +22,6 @@ interface ArtistDocumentInterface extends Document {
 const ArtistSchema = new Schema<ArtistDocumentInterface>({
     name: {
         type: String,
-        unique: true,
         required: true,
         trim: true,
         validate: (value: string) => {
