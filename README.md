@@ -1,13 +1,16 @@
 # Práctica 12 - Cliente y servidor para una aplicación de procesamiento de notas de texto
 **Asignatura:** Desarrollo de sistemas informáticos  
+
 **Nombres:**  
-Leonardo Alfonso Cruz Rodríguez
-Eduardo González Pérez
-Jose Orlando Nina Orellana  
-**Correos:** 
+Leonardo Alfonso Cruz Rodríguez\
+Eduardo González Pérez\
+Jose Orlando Nina Orellana
+
+**Correos:**   
 alu0101233093@ull.edu.es  
-alu0101319001@ull.edu.es
+alu0101319001@ull.edu.es\
 alu0101322308@ull.edu.es
+
 **GitHub Page:**
 [Enlace](https://ull-esit-inf-dsi-2122.github.io/ull-esit-inf-dsi-21-22-prct12-music-api-grupo-f/)
 
@@ -552,9 +555,30 @@ Para cada modelo de dato, existe la siguiente lista de routers:
   - **GET:**
     Existen dos variantes de peticiones GET:
     - Petición GET por id:
-      Buscará en la base de datos utilizando la `id` del documento.
+      Buscará en la base de datos utilizando la `id` del documento. Para ello, recoge la id que se pasará como parámetro, por medio del atributo `req.params.id`. Con él, se le aplica sobre el módulo de datos concreto, la función `findById()`, que mediante promesas, obtenemos los datos que devuelve. Si son undefined, devolverá el estádo `400`, en otro caso, devolverá los datos con el estado `200`. En caso de que la propia función encuentre un error en su ejecución, se devolverá el estado `500`, junto con el propio error retornado. 
+
     - Petición GET por nombre:
-      Buscará en la base de datos utilizando el atributo `name`.
+      Buscará en la base de datos utilizando el atributo `name`. Este atributo lo recibiremos como una _query string_, por lo que primero comprobamos su existencia. En caso de existir, usaremos como filtro de búsqueda un objeto que contiene la propiedad `name`, con el valor correspondiente pasado por el _query string_. En caso contrario, obtendremos un objeto vacío como filtro, que resultará en mostrar todos los objetos registrados en la base de datos. Esto será resultado de la función `find()`, a la que le pasaremos el filtro obtenido y como promesa retornará los datos obtenidos. Si son vacios, se devolverá el estado `404`, en otro caso, se enviarán los datos correspondientes junto el estado `200`. En caso de fallar la función, se retornará el estado `500`, junto al error en cuestión. 
+
+  - **DELETE:**
+    Existen dos variantes de la petición DELETE: 
+    - Petición DELETE por id: 
+      Buscará y eliminara de la base de datos el objeto correspondiente con el atributo `id` indicado. Para ello, le pasaremos dicha `id` como parámetro de la búsqueda, y será utilizado como filtro de búsqueda en la función `findByIdAndDelete()`, que retornará como promesa los datos correspondientes. En caso de datos vacíos, se enviará el estado `404`; si es correcto, se enviará los datos eliminados de la base de datos, junto al estado `200`; en caso de un error en la función, se enviará el estado `400`, junto a la información del error. 
+    - Petición DELETE por nombre:
+      Buscará y eliminará de la base de datos el objeto correspondiente con el atributo `name` indicado. Para ello, le pasaremos el atributo `name` por una _query string_. En caso de que no se le pase dicho atributo, se retornará un estado `400`, junto con un objeto con la propiedad `error`, que contiene un mensaje indicando que se debe proporcionar un nombre. Si así sucede, se realizará la función `findOneAndDelete()`, pasandole como un filtro un objeto con la propiedad `name` y el valor correspondiente obtenido de la _query string_. Como promesa, se obtendrá los datos devueltos: si son vacíos, se retornará el estado `404`; en otro caso, se retornará el estado `200`, junto con los datos que se han eliminado. En caso de que la función de un error, se enviará el estado `400` junto al error en cuestión.
+  
+
+  - **PATCH:**
+    Existen dos variantes de la petición PATCH: 
+    - Petición PATCH por id: 
+      Buscará el objeto de la base de datos correspondiente mediante su `id` y realizará las modificaciones en el mismo en base a la información pasada en el `body`. De esta forma, se comprobará que las propiedades del objeto pasado en el `body`, corresponden con las propiedas existentes en el modelo que se está modificando. De no ser el caso, se enviará un estado `400` junto a un objeto que contiene el mensaje _"Update is not permitted"_. Si las propiedades introducidas son válidas para el modelo de datos correspondiente, se realizará la función `findByIdAndUpdate()`, a la que le pasamos el parámetro obtenido con la `id`, que actuará como filtro; los datos a actualizar contenidos en `body`, y un objeto en el que indicamos las opciones `new` como **true**, ya que deseamos obtener los datos correspondientes tras la actualización, y `runValidators` como **true**, que ejecutará los validadores definidos en el modelo de datos correspondiente con los nuevos datos pasados. De esta forma, como promesa, obtendremos los datos devueltos por dicha función. Si estos datos son vacios, retornaremos el estado `404`; en otro caso, devolveremos el estado `200`, junto con los datos correspondientes. Si está función llegase a fallar, se devolverá el estado `400`, junto con el error en cuestión. 
+
+    - Petición PATCH por nombre:
+      Buscará el objeto de la base de datos correspondiente mediante su `name` y realizará las modificaciones en el mismo en base a la información pasada en el `body`. De esta forma, se comprobará que las propiedades del objeto pasado en el `body`, corresponden con las propiedas existentes en el modelo que se está modificando. De no ser el caso, se enviará un estado `400` junto a un objeto que contiene el mensaje _"Update is not permitted"_. A parte, se deberá pasar el nombre a buscar como una _query string_; en caso contrario, se retornará el estado `400`, junto al objeto con propiedad `error` con el mensaje pertinente. Si las propiedades introducidas son válidas para el modelo de datos correspondiente, se realizará la función `findByIdAndUpdate()`, a la que le pasamos el parámetro obtenido con la `name`, que actuará como filtro; los datos a actualizar contenidos en `body`, y un objeto en el que indicamos las opciones `new` como **true**, ya que deseamos obtener los datos correspondientes tras la actualización, y `runValidators` como **true**, que ejecutará los validadores definidos en el modelo de datos correspondiente con los nuevos datos pasados. De esta forma, como promesa, obtendremos los datos devueltos por dicha función. Si estos datos son vacios, retornaremos el estado `404`; en otro caso, devolveremos el estado `200`, junto con los datos correspondientes. Si está función llegase a fallar, se devolverá el estado `400`, junto con el error en cuestión. 
+
+  - **DEFAULT:**
+    En caso de introducir una ruta diferente a la esperada, se activará este router, que devolverá como respuesta el estado `501`. 
+
 
 ## Creación del servidor y conexión al clúster de MongoDB Atlas<a name="id3"></a>
 
@@ -582,7 +606,7 @@ connect(dbURI, {
 });
 ```
 
-Primero que nada importar el fichero ./db/mongoose creado anteriormente para poder realizar la conexión con el clúster. Crearemos el servidor `app` con exprress e indicaremos que usaremos JSON y los todos los routers de la carpeta routers (SongRouter, ArtistRouter, PlaylistRouter, DefaultRouter). Crearemos una variable `port` que será la variable de entorno `PORT` o 3000. Por último escucharemos con `listen` en el puerto indicado.
+Primero que nada importar el fichero ./db/mongoose creado anteriormente para poder realizar la conexión con el clúster. Crearemos el servidor `app` con exprress e indicaremos que usaremos JSON y todos los routers de la carpeta routers (SongRouter, ArtistRouter, PlaylistRouter, DefaultRouter). Crearemos una variable `port` que será la variable de entorno `PORT` o 3000. Por último escucharemos con `listen` en el puerto indicado.
 
 ```typescript
 import * as express from 'express';
@@ -612,7 +636,7 @@ Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.co
 
 A continuación crearemos un clúster. Escogeremos un clúster compartido ya que es gratuito. Dejamos todas la opciones por defecto.
 
-foto
+![Creación Cluster](https://gyazo.com/e5817cf2ce88842dc6311848f680256c)
 
 Haremos click en Network Access que es una lista de IPs desde la cuáles se puede acceder al clúster. Pulsaremos en Add IP Address y seleccionaremos Allow Access from anywhere, de este modo se podrá acceder al clúster desde cualquier IP.
 
@@ -620,8 +644,12 @@ Haremos click en Network Access que es una lista de IPs desde la cuáles se pued
 
 Luego de esto nos dirigiremos Database Access que nos permite filtrar los usuarios, sus permisos y tipos de autenticación a los clústers. Pulsaremos en Add New Database User, ya dentro seleccionaremos como modo de autenticación Password, crearemos un nuevo usuario llamado admin y crearemos una contraseña para ese usuario.
 
-![](https://gyazo.com/5f23559ff1c0a20b4e040060f65501f6.png)
+![Database User](https://gyazo.com/5f23559ff1c0a20b4e040060f65501f6.png)
 
 Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le asignaremos el role Atlas admin. Para terminar pulsaremos en Add User.
 
-![](https://gyazo.com/ed43c84820f9c87ea0d005eac7a0468d.png)
+![Privilegios](https://gyazo.com/ed43c84820f9c87ea0d005eac7a0468d.png)
+
+Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalmente, podremos visualizar en la sección de **Collections**, el resultado de dichas peticiones y el almacenamiento permanente de nuestros datos: 
+
+![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a)
