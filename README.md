@@ -17,6 +17,10 @@ alu0101322308@ull.edu.es
 - [Cubrimiento de código utilizando Instanbul y Coveralls](#id0.4)
 - [Integración continua de código fuente TypeScript a través de GitHub Action](#id0.5)
 - [Calidad y seguridad del código fuente mediante Sonar Cloud](#id0.6)
+- [Modelos de datos](#id1)
+- [Implementación de routers](#id2)
+- [Creación del servidor y conexión al clúster de MongoDB Atlas](#id3)
+- [Creacion de clúster en MongoDB Atlas](#id3.1)
 
 ## Creación del directorio de trabajo y tareas previas<a name="id0"></a>
 Antes de empezar el proyecto es necesario instalar diversos paquetes para tener una estructura de directorios adecuada. Para ello el primer paso es crear el directorio principal:
@@ -462,7 +466,6 @@ Después crearemos el el esquema `SongSchema` usando como argumento el tipo Song
 
   - **autor:**
     - Tipo: String
-    - Único: True
     - Requerido: True
     - Trim (Quitar espacios al final y principio de la cadena): True
     - Validate: Comprueba que los caracteres pertenecen al conjunto ascii o al alfabeto del lenguaje español
@@ -601,7 +604,7 @@ app.listen(port, () => {
 });
 ```
 
-## Creacion de clúster en MongoDB Atlas<a name="id"></a>
+## Creacion de clúster en MongoDB Atlas<a name="id3.1"></a>
 
 Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.com/es) con el correo institucional.
 
