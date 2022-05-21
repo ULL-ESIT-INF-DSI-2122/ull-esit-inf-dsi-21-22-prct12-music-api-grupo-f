@@ -636,7 +636,7 @@ Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.co
 
 A continuación crearemos un clúster. Escogeremos un clúster compartido ya que es gratuito. Dejamos todas la opciones por defecto.
 
-![Creación Cluster](https://gyazo.com/e5817cf2ce88842dc6311848f680256c)
+![Creación Cluster](https://gyazo.com/e5817cf2ce88842dc6311848f680256c.png)
 
 Haremos click en Network Access que es una lista de IPs desde la cuáles se puede acceder al clúster. Pulsaremos en Add IP Address y seleccionaremos Allow Access from anywhere, de este modo se podrá acceder al clúster desde cualquier IP.
 
@@ -652,4 +652,4 @@ Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le
 
 Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalmente, podremos visualizar en la sección de **Collections**, el resultado de dichas peticiones y el almacenamiento permanente de nuestros datos: 
 
-![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a)
+![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a.png)
