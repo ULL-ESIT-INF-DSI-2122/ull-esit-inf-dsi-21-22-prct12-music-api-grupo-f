@@ -38,7 +38,6 @@ const SongSchema = new Schema<SongDocumentInterface>({
         type: String,
         required: true,
         trim: true,
-        unique: true,
         validate: (value: string) => {
             if (!value.match(regExp)) {
                 throw new Error('The name of the author must be a combination of printable ascii characters or characters within the Spanish language');
