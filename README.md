@@ -1,4 +1,4 @@
-# Práctica 12 - Cliente y servidor para una aplicación de procesamiento de notas de texto
+# Práctica 12 - API Node/Express de gestión de información musical
 **Asignatura:** Desarrollo de sistemas informáticos  
 
 **Nombres:**  
