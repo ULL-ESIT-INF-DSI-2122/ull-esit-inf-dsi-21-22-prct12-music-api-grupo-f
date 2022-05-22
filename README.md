@@ -17,12 +17,11 @@ alu0101322308@ull.edu.es
 ## Índice
 - [Creación del directorio de trabajo y tareas previas](#id0)
 - [Debugger TypeScript en VSC](#id0.1)
-- [Mocha y Chai - Programación TDD](#id0.2)
-- [Documentación con TypeDoc](#id0.3)
+- [Documentación con TypeDoc](#id0.2)
 - [Modelos de datos](#id1)
 - [Implementación de routers](#id2)
-- [Creación del servidor y conexión al clúster de MongoDB Atlas](#id3)
-- [Creacion de clúster en MongoDB Atlas](#id3.1)
+- [Creacion de clúster en MongoDB Atlas](#id3)
+- [Creación del servidor y conexión al clúster de MongoDB Atlas](#id3.1)
 - [Peticiones con la extensión Thunder Client](#id4)
 
 ## Creación del directorio de trabajo y tareas previas<a name="id0"></a>
@@ -110,7 +109,7 @@ Para debuggear un archivo, debe compilarse previamente y darle al botón verde e
   
 ![image](https://user-images.githubusercontent.com/72469549/156931099-b62aecbb-80c9-441f-96dd-493d35cf9052.png)
 
-## Documentación con TypeDoc<a name="id0.3"></a>
+## Documentación con TypeDoc<a name="id0.2"></a>
 El primer paso para realizar la documentación con la herramienta `TypeDoc` sería instalar la librería correspondiente:
 ```bash
 $npm install -D typedoc
@@ -345,8 +344,31 @@ Para cada modelo de dato, existe la siguiente lista de routers:
   - **DEFAULT:**
     En caso de introducir una ruta diferente a la esperada, se activará este router, que devolverá como respuesta el estado `501`. 
 
+## Creacion de clúster en MongoDB Atlas<a name="id3"></a>
 
-## Creación del servidor y conexión al clúster de MongoDB Atlas<a name="id3"></a>
+Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.com/es) con el correo institucional.
+
+A continuación crearemos un clúster. Escogeremos un clúster compartido ya que es gratuito. Dejamos todas la opciones por defecto.
+
+![Creación Cluster](https://gyazo.com/e5817cf2ce88842dc6311848f680256c.png)
+
+Haremos click en Network Access que es una lista de IPs desde la cuáles se puede acceder al clúster. Pulsaremos en Add IP Address y seleccionaremos Allow Access from anywhere, de este modo se podrá acceder al clúster desde cualquier IP.
+
+![Network Access](https://gyazo.com/428908214089fafcde454ab46abf187e.png)
+
+Luego de esto nos dirigiremos Database Access que nos permite filtrar los usuarios, sus permisos y tipos de autenticación a los clústers. Pulsaremos en Add New Database User, ya dentro seleccionaremos como modo de autenticación Password, crearemos un nuevo usuario llamado admin y crearemos una contraseña para ese usuario.
+
+![Database User](https://gyazo.com/5f23559ff1c0a20b4e040060f65501f6.png)
+
+Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le asignaremos el role Atlas admin. Para terminar pulsaremos en Add User.
+
+![Privilegios](https://gyazo.com/ed43c84820f9c87ea0d005eac7a0468d.png)
+
+Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalmente, podremos visualizar en la sección de **Collections**, el resultado de dichas peticiones y el almacenamiento permanente de nuestros datos: 
+
+![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a.png)
+
+## Creación del servidor y conexión al clúster de MongoDB Atlas<a name="id3.1"></a>
 
 Antes de todo crearemos el fichero `.env` que contendrá las variables de entorno `MONGODB_URL`, que es la URL para conectarse al 
 clúster de MongoDB Atlas, y `PORT`, el puerto 8000.
@@ -395,30 +417,6 @@ app.listen(port, () => {
     console.log('Server has started at port ', port);
 });
 ```
-
-## Creacion de clúster en MongoDB Atlas<a name="id3.1"></a>
-
-Primero nos registraremos en la página de [MongDB Atlas](https://www.mongodb.com/es) con el correo institucional.
-
-A continuación crearemos un clúster. Escogeremos un clúster compartido ya que es gratuito. Dejamos todas la opciones por defecto.
-
-![Creación Cluster](https://gyazo.com/e5817cf2ce88842dc6311848f680256c.png)
-
-Haremos click en Network Access que es una lista de IPs desde la cuáles se puede acceder al clúster. Pulsaremos en Add IP Address y seleccionaremos Allow Access from anywhere, de este modo se podrá acceder al clúster desde cualquier IP.
-
-![Network Access](https://gyazo.com/428908214089fafcde454ab46abf187e.png)
-
-Luego de esto nos dirigiremos Database Access que nos permite filtrar los usuarios, sus permisos y tipos de autenticación a los clústers. Pulsaremos en Add New Database User, ya dentro seleccionaremos como modo de autenticación Password, crearemos un nuevo usuario llamado admin y crearemos una contraseña para ese usuario.
-
-![Database User](https://gyazo.com/5f23559ff1c0a20b4e040060f65501f6.png)
-
-Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le asignaremos el role Atlas admin. Para terminar pulsaremos en Add User.
-
-![Privilegios](https://gyazo.com/ed43c84820f9c87ea0d005eac7a0468d.png)
-
-Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalmente, podremos visualizar en la sección de **Collections**, el resultado de dichas peticiones y el almacenamiento permanente de nuestros datos: 
-
-![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a.png)
 
 ## Peticiones con la extensión Thunder Client<a name="id4"></a>
 
