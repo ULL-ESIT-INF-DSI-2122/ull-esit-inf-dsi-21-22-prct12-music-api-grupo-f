@@ -2,13 +2,13 @@
 **Asignatura:** Desarrollo de sistemas informáticos  
 
 **Nombres:**  
-Leonardo Alfonso Cruz Rodríguez\
-Eduardo González Pérez\
+Leonardo Alfonso Cruz Rodríguez  
+Eduardo González Pérez  
 Jose Orlando Nina Orellana
 
 **Correos:**   
 alu0101233093@ull.edu.es  
-alu0101319001@ull.edu.es\
+alu0101319001@ull.edu.es  
 alu0101322308@ull.edu.es
 
 **GitHub Page:**
@@ -26,6 +26,7 @@ alu0101322308@ull.edu.es
 - [Implementación de routers](#id2)
 - [Creación del servidor y conexión al clúster de MongoDB Atlas](#id3)
 - [Creacion de clúster en MongoDB Atlas](#id3.1)
+- [Peticiones con la extensión Thunder Client](#id4)
 
 ## Creación del directorio de trabajo y tareas previas<a name="id0"></a>
 Antes de empezar el proyecto es necesario instalar diversos paquetes para tener una estructura de directorios adecuada. Para ello el primer paso es crear el directorio principal:
@@ -653,3 +654,17 @@ Le podemos asignar roles o especificar privilegios, pero en nuestro caso solo le
 Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalmente, podremos visualizar en la sección de **Collections**, el resultado de dichas peticiones y el almacenamiento permanente de nuestros datos: 
 
 ![Collections](https://gyazo.com/debe9e9f34331239a20ae7b5e4347d3a.png)
+
+## Peticiones con la extensión Thunder Client<a name="id4"></a>
+
+### **Petición DEFAULT**
+### **Peticiones POST**
+### **Peticiones GET con código de estado 200**
+### **Peticiones GET con código de estado 404**
+### **Peticiones GET con código de estado 500**
+### **Peticiones PACTH con código de estado 200**
+### **Peticiones PACTH con código de estado 400**
+### **Peticiones PACTH con código de estado 404**
+### **Peticiones DELETE con código de estado 200**
+### **Peticiones DELETE con código de estado 400**
+### **Peticiones DELETE con código de estado 404**
