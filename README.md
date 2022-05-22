@@ -658,13 +658,212 @@ Una vez que vayamos realizando peticiones y adiciones a la base de datos, finalm
 ## Peticiones con la extensión Thunder Client<a name="id4"></a>
 
 ### **Petición DEFAULT**
-### **Peticiones POST**
-### **Peticiones GET con código de estado 200**
-### **Peticiones GET con código de estado 404**
-### **Peticiones GET con código de estado 500**
-### **Peticiones PACTH con código de estado 200**
-### **Peticiones PACTH con código de estado 400**
-### **Peticiones PACTH con código de estado 404**
-### **Peticiones DELETE con código de estado 200**
-### **Peticiones DELETE con código de estado 400**
-### **Peticiones DELETE con código de estado 404**
+Tipo: GET  
+URL: https://grupo-f-music-app.herokuapp.com/  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169702084-49c187f3-cd56-4193-bc58-0636aca6a3b5.png)
+
+### **Petición POST**
+URL: https://grupo-f-music-app.herokuapp.com/artist  
+Body:
+```json
+  {
+    "name": "Frank Sinatra",
+    "genres": [
+      "Jazz"
+    ],
+    "monthlyListeners": 10938478,
+    "songs": [
+      "Fly Me To The Moon",
+      "That's Life",
+      "My Way",
+      "Theme From New York, New York"
+    ]
+  }
+```
+
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701375-a9a383b0-0f36-4113-8665-4275aa5c2620.png)
+```json
+{
+  "genres": [
+    "Jazz"
+  ],
+  "songs": [
+    "Fly Me To The Moon",
+    "That's Life",
+    "My Way",
+    "Theme From New York, New York"
+  ],
+  "monthlyListeners": 10938478,
+  "_id": "628a4d3dd8426d0016a16189",
+  "name": "Frank Sinatra",
+  "__v": 0
+}
+```
+
+### **Petición GET con código de estado 200**
+URL: https://grupo-f-music-app.herokuapp.com/song?name=Lazy song  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701399-3fea2a7b-fa64-4ba0-bb87-eba69715571b.png)
+```json
+[
+  {
+    "duration": 3.09,
+    "genres": [
+      "Pop"
+    ],
+    "numberReproductions": 579789618,
+    "_id": "628920dc8f4b200016efdfa8",
+    "name": "Lazy song",
+    "author": "Bruno Mars",
+    "single": true,
+    "__v": 0
+  }
+]
+```
+
+
+### **Petición GET con código de estado 404**
+URL: https://grupo-f-music-app.herokuapp.com/artist?name=David Bis  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701470-9c4f3e88-52e1-44db-b8b0-5379dc8bfaab.png)
+
+
+### **Petición GET con código de estado 500**
+URL: https://grupo-f-music-app.herokuapp.com/playlist/628927043731ab00162b462q  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701532-080e0de6-b9dc-4fe2-b8e6-6dcf4a72732e.png)
+```json
+{
+  "stringValue": "\"628927043731ab00162b462q\"",
+  "valueType": "string",
+  "kind": "ObjectId",
+  "value": "628927043731ab00162b462q",
+  "path": "_id",
+  "reason": {},
+  "name": "CastError",
+  "message": "Cast to ObjectId failed for value \"628927043731ab00162b462q\" (type string) at path \"_id\" for model \"Playlist\""
+}
+```
+
+### **Petición PATCH con código de estado 200**
+URL: https://grupo-f-music-app.herokuapp.com/artist?name=Frank Sinatra  
+Body:
+```json
+  {
+    "name": "Frank Sinatra",
+    "genres": [
+      "Jazz"
+    ],
+    "monthlyListeners": 10938578,
+    "songs": [
+      "Fly Me To The Moon",
+      "That's Life",
+      "My Way",
+      "Theme From New York, New York"
+    ]
+  }
+```
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701589-220e10a1-6c4c-4264-a888-ab653b6fb29f.png)
+```json
+{
+  "genres": [
+    "Jazz"
+  ],
+  "songs": [
+    "Fly Me To The Moon",
+    "That's Life",
+    "My Way",
+    "Theme From New York, New York"
+  ],
+  "monthlyListeners": 10938578,
+  "_id": "628a4d3dd8426d0016a16189",
+  "name": "Frank Sinatra",
+  "__v": 0
+}
+```
+
+### **Petición PATCH con código de estado 400**
+URL: https://grupo-f-music-app.herokuapp.com/artist?name=Frank Sinatra  
+Body: 
+```json
+  {
+    "error": "error",
+    "name": "Frank Sinatra",
+    "genres": [
+      "Jazz"
+    ],
+    "monthlyListeners": 10938478,
+    "songs": [
+      "Fly Me To The Moon",
+      "That's Life",
+      "My Way",
+      "Theme From New York, New York"
+    ]
+  }
+```
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701615-4aeef73e-cb6e-4b33-8bf2-bba8cc1fae84.png)
+```json
+{
+  "stringValue": "\"fa12\"",
+  "valueType": "string",
+  "kind": "Number",
+  "value": "fa12",
+  "path": "monthlyListeners",
+  "reason": {
+    "generatedMessage": true,
+    "code": "ERR_ASSERTION",
+    "actual": false,
+    "expected": true,
+    "operator": "=="
+  },
+  "name": "CastError",
+  "message": "Cast to Number failed for value \"fa12\" (type string) at path \"monthlyListeners\""
+}
+```
+
+### **Petición PATCH con código de estado 404**
+URL: https://grupo-f-music-app.herokuapp.com/playlist?name=Playlist N2  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701655-2c029cf6-0568-49b6-b744-66874f632ec6.png)
+
+### **Petición DELETE con código de estado 200**
+URL: https://grupo-f-music-app.herokuapp.com/artist?name=Frank Sinatra  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701685-bd61b30d-a79f-4020-9302-d43410fbb40e.png)
+```json
+{
+  "genres": [
+    "Jazz"
+  ],
+  "songs": [
+    "Fly Me To The Moon",
+    "That's Life",
+    "My Way",
+    "Theme From New York, New York"
+  ],
+  "monthlyListeners": 10938578,
+  "_id": "628a4d3dd8426d0016a16189",
+  "name": "Frank Sinatra",
+  "__v": 0
+}
+```
+
+### **Petición DELETE con código de estado 400**
+URL: https://grupo-f-music-app.herokuapp.com/song  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701711-09b6167d-04f1-4f73-b8d3-60659041cc0b.png)
+```json
+{
+  "error": "A name must be provided"
+}
+```
+
+### **Petición DELETE con código de estado 404**
+URL: https://grupo-f-music-app.herokuapp.com/artist?name=David  
+Resultado:  
+![image](https://user-images.githubusercontent.com/72469549/169701739-0bd07f6d-aaa5-403d-a612-399e88436e80.png)
+
